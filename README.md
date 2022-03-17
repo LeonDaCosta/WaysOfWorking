@@ -233,11 +233,11 @@ be able to easily see these errors and be alerted of problems. This will make de
 
 ### Commit only working code
 
-The git tree should be traversable back in time without the codebase running into fatal exceptions due to incomplete 
+The git tree should be traversable back in time without the codebase running into fatal exceptions due to broken 
 features. When commiting code, think about how you break up the commits, sometimes commiting file by file or even chuck
 by chunk to create a git tree that flows nicley. Should you need to commit broken code to allow a fellow developer to
 help debug with you, prefix the commit with `WIP:`, `[WIP]`, or `WIP -` and once solved, swiftly commit again the solution 
-to that issue alone.
+to that issue alone in a single commit. A WIP commit should only exist for a short period of time while the issue is solved.
 
 ### Aiming for high Code Coverage by testing all edge cases
 
@@ -248,7 +248,7 @@ the API endpoints your using or get hold of a sandboxing environment for that AP
 You should be hitting as many edge cases in testing as possible both happy and unhappy paths. Your tests should be
 structured in that 1 feature or unit is tested per file with multiple scenarios in the file as seperate test methods.
 
-For example it is not recommended to have and `OrderTest` file which has mutiple test scenarios that create, add, edit.
+For example it is not recommended to have an `OrderTest` file which has mutiple test scenarios that create, add, edit.
 You should infact have a `CreateOrderTest` which has multiple scenarios for creating a test correctly and incorrectly.
 
 ### Automate proceedures with CLI commands
@@ -261,7 +261,7 @@ you made those commands then.
 
 Pair coding is not or everyone and doesnt work in all teams. It can sometimes require a strong bond and similar
 working style between 2 developers. When this rare situation is found it should be encouraged for solving complex 
-issues and debugging difficult mystical problems. THe power of 2 minds working together can be far better than 1 mind
+issues and debugging difficult mystical problems. The power of 2 minds working together can be far better than 1 mind
 going round and round in circles.
 
 ### Plan your design and architechture
@@ -277,21 +277,46 @@ technical debt and/or security issues in the future. Make sure to use design pat
 problem, and don't use the business you work for as a testing ground for new un-proven design patterns that may not 
 solve your problem.
 
-## Git Flow
+### Use features of the PHP version you are using
+
+If your servers have the latest version of PHP installed, dont be scared to use the features it provides.
+Some features that are available in recent versions of PHP like constructor property promotion are great and can
+save a fair amount of time, plus clean up your code. So if you can don't stay using the old methods when new ones are there for you.
+
+## Git 
+
+### Git Flow
 
 Git Flow should be used where acceptable to improve collaboration on projects in the team and make deployments
 easier to manage.
 
 More details on Git flow can be found here - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
-## Git Commits
+### Git Collaboration & Techniques
 
-The following outlines some guidelines of how to break up commits and write git commit messages that may possibly end up 
+Git is designed to be used for teams to collaborate and should be used as such. Sometimes companies can fall into the trap
+of using git as a fancy tool to `Save` and this can be avoided by remebering to follow these rules.
+
+- Commits should always be small and attempt to contain code that performs only 1 job (Seperation of concerns). This will 
+ help in the future if you need to cherry pick small portions of code from one branch to another. 
+- Commits should never contain broken code unless you absolutely have to, in which case it should be prefixed with `WIP:`.
+ Although broken code should be avoided in commits you can commit incomplete but working features no problem. For example, a migration with just the `up`
+ method as it is an incomplete migration but still works. See the section above https://github.com/PrecisionProcoGroup/WaysOfWorking#commit-only-working-code
+- Always push your branch after each commit you make. This assures that if you are taken ill or moved onto another project your work
+can be picked up by another team member immediatly with no delay. If you are following the rule above this shouldnt be an issue at all!
+- When working on the same branch with a team mate, this can be achived easily while keeping the git tree clean and in a straight line.
+You do so by making sure to fetch your team mates commits after you have made a commit then rebaseing your local branch on the remote. For example if you are checked out on `feature/PPG-123` and you have just fetched; assuming commits were pulled in from the remote then you can run `git rebase origin/feature/PPG-123`. This will put your commits on top of the ones you just fetched keeping you up to date with a clean tree.
+- When making commits which make changes from feedback on a PR/MR, make sure to commit each change independently following the commit guidelines,
+ do not group changes into a single commit called "PR Feedback" for example as this is not useful to the git history and anyone navigating the git log. 
+- Try to avoid making commits directly to master or develop as this may cause unforseen side effects to occur, and will cause 
+team members to have to update more often with their target branch making the git tree more untidy. 
+- Never force push ever, ever, ever, as team members will lose their work! 
+
+### Writing Git Commit Messages
+
+The following outlines some guidelines of how to write git commit messages that will make your git tree look amazing, and may possibly end up 
 helping you in the future.
 
- - Commits should always be small and attempt to contain code that performs only 1 job (Seperation of concerns). This will 
- help in the future when you may need to cherry pick small portions of code from one branch to another.
- - Commits should never contain broken code unless you absolutely have to. See the section above https://github.com/PrecisionProcoGroup/WaysOfWorking#commit-only-working-code
  - All commit messages should be clear and concise with no ambiguity
  - A commit message subject should always contain enough context to understand the actions of the developer and the impact 
  of the code contained in the commit, for more detail use the commit message body.
@@ -315,10 +340,7 @@ helping you in the future.
  - Commits should be written in sentence case, see details here - https://en.wikipedia.org/wiki/Letter_case#Sentence_case
  - If using JIRA for project management, it is ideal to prefix all commit message subjects in square brackets with the ticket number `[CLC-123]`. 
  This will provide a link to the ticket in JIRA directly from the commit.
- - When making commits which make changes from feedback on a PR/MR, make sure to commit each change independently following the rules outlined here,
- do not group into a single commit called "PR Feedback" for example as this is not useful to the git history and anyone navigating the git log. 
  - All commit messages should have no passive agressive context towards other developers or situations in the company.
- - Commits should never be made directly to master or develop, oh and dont force push ever!
 
  > *TIP*: set up a default commit message template in your git config to help you adhear to all these rules
 
@@ -326,6 +348,29 @@ helping you in the future.
 
 A development team generally leans heavily on pull requests to assure code quality and to make sure that work is done 
 on time. Lets see the best way PR's can be managed to keep all the cogs moving.
+
+### Self Review
+
+Before submitting a PR you should be doing a self review of your own code before you consider it final and ready for submission.
+
+There are a number of ways you can do this. You can first submit a draft PR in the browser and then browse the changes you have made in the
+browser making notes of any changes you might want to make there, then fix them and once done mark the PR as ready.
+
+You can also use the cli to show you a diff between your branch and the target branch and make changes then before submission, or you could also use
+a diff tool with a UI.
+
+Whatever way you choose to view the diff and the changes you made, these are the things you should look out for, some things will need to be done outside the diff:
+
+- **Commented out code** If you need to comment out code for any reason then a TODO comment should be added above the commented out code to explain your reasoning as to why it was commented out instead of being removed and when you will be addressing its removal.
+- **Useless docblocks** Commonly these are docblocks that either repeat what the code already sais (see the section https://github.com/PrecisionProcoGroup/WaysOfWorking#comment-only-what-the-code-cannot-say) or they are docblocks that are just plain pointless and add no value atall (commonly added by code generator commands from frameworks such as laravel)
+- **Pointless constructs and empty methods** Again these are usually added by either copying and pasting template classes or using 
+code generator commands from frameworks such as laravel. This method of development should be avoided as it can cause you to spend more time removing
+code and cleaning up than if you were to just write it yourself. 
+- **Coding Standards** Always do a quick scan for anything like type hinting, trailing commas, indentation, and anything else standards related that might pop out. Never rely on automated standards tools finding everything, things will always find a way through.
+- **Architechture** Always run over in your head the architechture of your work as you are scanning your changes to assure you have not made any mistakes that could cause a code smell in the future. https://en.wikipedia.org/wiki/Code_smell
+- **Teardown and rebuild from scratch** For large features, esspecially ones that contain significant changes to the env and database, you should 
+teardown your local setup removing the database and env file and rebuild from the readme from scratch to make sure that you dont encounter any fatal errors that will be an immediate blocker to somebody reviewing your work.
+- **Visual click through** For features involving changes to the UI or large new UI features, you should do a final click around on the UI throwing all sorts of random data at your feature manually and fairly fast. If you encounter a problem you can fix it there and then before submission.
 
 ### Submitting
 
@@ -372,8 +417,9 @@ approvals from reviewers which should come from a collection of developers picke
 Senior developers should then be able to merge it once these requirements have been met. If an update to that PR is made after the approvals quota
 is reached then the quota is reset and the approval process restarts before a merge can be completed.
 
-You should always merge in a way that maintains the hillocks in the git tree, and remove the branch after merging.
-You can do this like so:
+You should always merge in a way that maintains the hillocks in the git tree, and remove the branch after merging, you should never squash a branch into another unless you need to hide the history.
+
+You can correctly merge a branch like so:
 
 ```
 git checkout target-branch
@@ -389,23 +435,14 @@ be a bit of a bottleneck on workflow and can be difficult to manage between the 
 ## Composer
 
 Ideally composer should be used to manage internal PHP dependancies. All dependancies should be listed in your composer.json
-file against a tag release of the relevant dependancy. dev-master should be avoided being used including avoiding using other
-development/feature/bugfix branches.
+file against a tag release of the relevant dependancy. 
 
-The way this works is that if you have a main project that depends on another project of shared classes and you have worked
-on both projects to ultimatly create a feature on the main project then you must wait before your pull request on the 
-shared project is merged and added into a tag release so you can update the main projects composer.json files tag release.
-Once that is update that pull request can be merged into the main project.
+dev-XXXXXXX should be avoided being used unless you are working on a branch that is in active development and not yet merged into develop
+and/or into a deployed branch.
 
-This avoids the main project ever ending up becoming broken due to invalid or old dependancies. During active 
-development of a feature dependancies should be symlinked in the vendor folder to avoid modifications of the composer.json
-file to include development branches. This also removes the risk of those changes being merged which would cause a failure
-as soon as the development branch is merged and removed.
-
-## Disadvantages and Benefits
-
-The above composer details can stiffle workflow and slowdown getting jobs done fast, however it can seriously reduce
-error rates, and increase trust of application security in the live environments. 
+Before being merged into develop and/or a deployed branch, the branch in use on composer for an internal package should be tagged and released.
+This means for branches that have mutiple internal packages that they depend on, it can cause a large slow down in QA because you end up with PRs
+having to be merged and released in a linear chain a bit like a chain in the housing market. This is SLOW!
 
 ## Code of Conduct
 
