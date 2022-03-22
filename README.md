@@ -20,9 +20,9 @@ team or project and do not already have one in place.
 
 ## Table of contents
 
-- [Developer Workflow](https://github.com/PrecisionProcoGroup/WaysOfWorking/Workflow.md)
-- [Procedures & Best Practises](https://github.com/PrecisionProcoGroup/WaysOfWorking/BestPractises.md)
+- [Developer Workflow](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/Workflow.md)
+- [Procedures & Best Practises](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/BestPractises.md)
 - Backend
-  - [Coding Standards](https://github.com/PrecisionProcoGroup/WaysOfWorking/Backend/CodingStandards.md)
+  - [Coding Standards](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/Backend/CodingStandards.md)
 - Frontend
-  - [Coding Standards](https://github.com/PrecisionProcoGroup/WaysOfWorking/Frontend/CodingStandards.md)
+  - [Coding Standards](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/Frontend/CodingStandards.md)
