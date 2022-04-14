@@ -4,6 +4,20 @@ There are a number of procedures and best practises that apply to both frontend 
 improve your code quality and how you develop as a team, here are some of the best the team has picked up over 
 the years.
 
+# Table of Contents
+
+- [Boy Scouting](#boy-scouting)
+- [Code SOLID](#code-solid)
+- [Code DRY](#code-dry)
+- [Throw Exceptions](#throw-exceptions)
+- [Catch and Log](#catch-and-log)
+- [Commit only working code](#commit-only-working-code)
+- [Aim for high Code Coverage by testing all edge cases](#aim-for-high-code-coverage-by-testing-all-edge-cases)
+- [Automate proceedures with CLI commands](#automate-proceedures-with-cli-commands)
+- [Pair code when possible](#pair-code-when-possible)
+- [Plan your design and architecture](#plan-your-design-and-architecture)
+- [Use new features of your coding language where possible](#use-new-features-of-your-coding-language-where-possible)
+
 ## Boy Scouting
 
 The boy scouting rule states that `you should always leave the campground cleaner than you found it`. This should be
@@ -37,7 +51,7 @@ Effectively pushing that problem onto them and not you.
 
 The more exceptions you throw on edge cases can also help in debugging too.
 
-## Catch & Log
+## Catch and Log
 
 Particularly when making external requests consuming APIs or running jobs, make sure you are dropping in logs if an
 exception is thrown. Should the company you work for have a plan wth a log management service such as Rollbar you will
@@ -51,7 +65,7 @@ by chunk to create a git tree that flows nicely. Should you need to commit broke
 help debug with you, prefix the commit with `WIP:`, `[WIP]`, or `WIP -` and once solved, swiftly commit again the solution
 to that issue alone in a single commit. A WIP commit should only exist for a short period of time while the issue is solved.
 
-## Aiming for high Code Coverage by testing all edge cases
+## Aim for high Code Coverage by testing all edge cases
 
 All code created should have tests added where coverage is valuable. When creating an API, you will need integration tests for each
 endpoint, including unit tests for the individual sections of code. When consuming APIs you will need to either stub
@@ -69,7 +83,7 @@ When developing a new feature it is a good idea to add certain aspects of that f
 may receive requests from the business to perform these tasks once the application is live, and you'll be pleased
 you made those commands then.
 
-## Pair coding
+## Pair code when possible
 
 Pair coding is not or everyone and doesn't work in all teams. It can sometimes require a strong bond and similar
 working style between 2 developers. When this rare situation is found it should be encouraged for solving complex

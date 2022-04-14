@@ -1,7 +1,18 @@
 # Developer Workflow
 
-Developers workflow should be inline when using version control and project management software to effectively collaborate
-together and reach peak efficiency. Here's some information on the best way teams can work well together while developing.
+Developers workflow should be inline when using version control and project management software to effectively collaborate together and reach peak efficiency. Here's some information on the best way teams can work well together while developing.
+
+# Table of Contents
+
+- [Git Flow](#git-flow)
+  - [Git Collaboration and Techniques](#git-collaboration-and-techniques)
+  - [Writing Git Commit Messages](#writing-git-commit-messages)
+- [Pull Requests](#pull-requests)
+  - [Self Review](#self-review)
+  - [Submitting](#submitting)
+  - [Reviewing and Commenting](#reviewing-and-commenting)
+  - [Approval and Merging](#approval-and-merging)
+- [Code of Conduct](#code-of-conduct)
 
 ## Git Flow
 
@@ -10,7 +21,7 @@ easier to manage.
 
 More details on Git flow can be found here - https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
-### Git Collaboration & Techniques
+### Git Collaboration and Techniques
 
 Git is designed to be used for teams to collaborate and should be used as such. Sometimes companies can fall into the trap
 of using git as a fancy tool to `Save` and this can be avoided by remembering to follow these rules.
@@ -119,7 +130,7 @@ an obvious one and went with something more complex. You should also think about
 and will the reviewer need to know this. Also, for an audit trail its wise to include a screenshot for any visual changes
 you made.
 
-### Reviewing & Commenting
+### Reviewing and Commenting
 
 To make sure to keep on top of PR's it is advisable to reserve 30-60 minutes at the end or beginning of each day to review them.
 Each PR should be reviewed for coding standards, syntax issues, and of course domain/business logic.
@@ -138,7 +149,7 @@ This can help in staff development and reduce time spent on reviewing code.
 
 All of these things help to avoid any conflict and toxic situations in comments sections of PRs.
 
-### Approval & Merging
+### Approval and Merging
 
 This section of PRs should be fairly simple. It is recommended that when there are at least 2 (or the amount the business is happy with)
 approvals from reviewers which should come from a collection of developers picked by the company.
