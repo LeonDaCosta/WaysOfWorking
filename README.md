@@ -23,5 +23,6 @@ ignored.
 - [Procedures & Best Practises](BestPractises.md)
 - Backend
   - [Coding Standards](Backend/CodingStandards.md)
+  - [Architecture Principles](Backend/ArchitecturePrinciples.md)
 - Frontend
   - [Coding Standards](Frontend/CodingStandards.md)
