@@ -13,6 +13,18 @@
 
 ## Use Design Patterns that solve your problem or improve re-usability
 
+Design patterns should be used when appropriate and they should solve a problem or make your code more re-usable.
+Common design patterns and methodologies that are recommended to employ for web development are as follows
+
+- DDD (Domain Driven Design)
+- ADR (Action Domain Response)
+- TDD (Test Driven Tesign)
+- Factory Pattern
+- Adapter Pattern
+- Strategy Pattern
+- Decorator Pattern
+- Singleton Pattern
+- Observer Pattern
 
 ## Keep Domain logic re-usable in Service Classes
 
