@@ -15,14 +15,13 @@ Although some rules in this repo may be also be fully or partially covered by st
 re-iterate and explain some things as the importance of some of these rules can often be overlooked, and the rule 
 ignored.
 
->NOTE: The information in this repo assumes that somebody is looking to implement ways of working and processes into their own development
-team or project and do not already have one in place.
+>NOTE: The information in this repo assumes that somebody is looking to implement ways of working and processes into their own development team or project and do not already have one in place.
 
 ## Table of contents
 
-- [Developer Workflow](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/Workflow.md)
-- [Procedures & Best Practises](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/BestPractises.md)
+- [Developer Workflow](Workflow.md)
+- [Procedures & Best Practises](BestPractises.md)
 - Backend
-  - [Coding Standards](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/Backend/CodingStandards.md)
+  - [Coding Standards](Backend/CodingStandards.md)
 - Frontend
-  - [Coding Standards](https://github.com/PrecisionProcoGroup/WaysOfWorking/blob/master/Frontend/CodingStandards.md)
+  - [Coding Standards](Frontend/CodingStandards.md)

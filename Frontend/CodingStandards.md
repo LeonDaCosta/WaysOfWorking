@@ -2,7 +2,7 @@
 
 Is it essential that development teams reach and maintain consensus regarding the conventions and practices that must be followed throughout development. There should however be a level of flexibility regarding any possible overrides of such proposed standards when and where the team see fit to adopt and thus adapt to satisfy new requirements.
 
-![Frontend Standards](https://www.creativeencode.com/wp-content/uploads/2019/09/Top-Front-End-Development-Tools-creative-Encode-Blog.jpg "Frontend Standards")
+![Frontend Standards](frontend.jpg "Frontend Standards")
 
 
 # Table of Contents
